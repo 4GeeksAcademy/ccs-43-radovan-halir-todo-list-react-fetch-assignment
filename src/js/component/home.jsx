@@ -19,6 +19,19 @@ const Home = () => {
 			setInputValue("")
 		}
 	}
+
+	// begining
+	async function getTodos() {
+		try { 
+			const API_URL = 
+			"http://assets.breatheco.de/apis/fake/todos/user";
+						const requestConfig = {
+							method: "GET",
+							headers: {
+								"content-type": "Application/json"
+								}
+						}
+	
 	return (
 		<div className="container">
 			<h1>MY TASKS</h1>
@@ -39,9 +52,9 @@ const Home = () => {
 					) : (
 						todos.map((item, index) => {
 							return (
-								<li className="hover">
+								<li className="hover" key={index}>
 									{item}{""}
-									<i class="fa-solid fa-trash cesto"
+									<i className="fa-solid fa-trash cesto"
 										onClick={() =>
 											setTodos(
 												todos.filter(
